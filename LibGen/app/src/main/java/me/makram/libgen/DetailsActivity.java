@@ -2,17 +2,16 @@ package me.makram.libgen;
 
 import android.app.DownloadManager;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.Uri;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -20,6 +19,7 @@ import me.makram.libgen.data.Entry;
 
 public class DetailsActivity extends AppCompatActivity {
 
+    public static final String ENTRY_DOWNLOADID_KEY = "entryDownloadId";
     /**
      * The download link of this entry.
      */
@@ -38,6 +38,8 @@ public class DetailsActivity extends AppCompatActivity {
      */
     private Entry entry;
 
+    DownloadBroadcastReceiver downloadReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,11 @@ public class DetailsActivity extends AppCompatActivity {
         entryTitleTextView = (TextView) findViewById(R.id.entryTitleTextView);
         authorTextView = (TextView) findViewById(R.id.authorsTextView);
         descriptionTextView = (TextView) findViewById(R.id.descriptionTextView);
+
+        downloadReceiver = new DownloadBroadcastReceiver();
+
+        registerReceiver(downloadReceiver,
+                new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
         fillInData();
     }
@@ -94,7 +101,12 @@ public class DetailsActivity extends AppCompatActivity {
         request.setDescription("Please wait...");
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         request.allowScanningByMediaScanner();
+
         long id = downloadManager.enqueue(request);
-        Log.v("DA", "Download started with id: " + id);
+        SharedPreferences preferences = getSharedPreferences(DetailsActivity.class.getName(),
+                MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putLong(ENTRY_DOWNLOADID_KEY, id);
+        editor.apply();
     }
 }
