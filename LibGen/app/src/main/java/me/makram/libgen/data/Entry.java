@@ -7,6 +7,11 @@ package me.makram.libgen.data;
 public class Entry {
 
     /**
+     * The id of this entry relative to the search (not absolute id).
+     */
+    public int id;
+
+    /**
      * Title of the entry.
      */
     public String title;
@@ -30,7 +35,7 @@ public class Entry {
     /**
      * Number of pages in this entry. Could be -1 for unknown.
      */
-    public int pages;
+    public String pages;
 
     /**
      * Language this book was written in. Could be null/empty.
@@ -40,7 +45,7 @@ public class Entry {
     /**
      * The size of the file in megabytes.
      */
-    public int size;
+    public String size;
 
     /**
      * The file extension, e.g pdf, mobi, etc.
@@ -51,4 +56,9 @@ public class Entry {
      * MD5 hash code used to download the book from libgen.io.
      */
     public String md5;
+
+    /**
+     * Link to the information page on libgen.
+     */
+    public String linkToPage;
 }
