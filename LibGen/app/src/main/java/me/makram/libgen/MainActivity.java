@@ -1,5 +1,6 @@
 package me.makram.libgen;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,14 +12,16 @@ import android.widget.Spinner;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 
+import java.util.Collection;
+
+import me.makram.libgen.data.Entry;
+
 public class MainActivity extends AppCompatActivity {
 
-    static final String SEARCH_URL =
+    public static final String SEARCH_URL =
             "http://gen.lib.rus.ec/search.php?&req=%s&phrase=1&view=simple&column=def&sort=title&sortmode=ASC&page=%d";
-    static final String BASE_URL =
+    public static final String BASE_URL =
             "http://gen.lib.rus.ec/";
-
-    public final OkHttpClient client = new OkHttpClient();
 
     EditText searchEdit;
     Spinner sourceSpinner;
@@ -57,8 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void searchButtonClicked(View view) {
         String query = searchEdit.getText().toString();
-        int pageNumber = 1;
-        String finalUrl = String.format(SEARCH_URL, query, pageNumber);
+
+        LibGen application = (LibGen) getApplication();
+        application.setPageNumber(1);
+        application.setQuery(query);
+
+        String finalUrl = String.format(SEARCH_URL, query, application.getPageNumber());
 
         Request request = new Request.Builder()
                 .url(finalUrl)

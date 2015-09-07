@@ -1,9 +1,13 @@
 package me.makram.libgen;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
@@ -12,6 +16,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,9 +28,13 @@ import me.makram.libgen.data.Entry;
  */
 class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
 
+    public static final String ENTRIES_ID = "entries";
+
     private MainActivity mainActivity;
 
     boolean succeeded = false;
+
+    public static final Type COLLECTION_ENTRY_TYPE = new TypeToken<Collection<Entry>>(){}.getType();
 
     public GetPageTask(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -43,7 +52,8 @@ class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
         List<Entry> entries = new ArrayList<>();
 
         try {
-            Response response = mainActivity.client.newCall(params[0]).execute();
+            OkHttpClient client = ((LibGen)mainActivity.getApplication()).getClient();
+            Response response = client.newCall(params[0]).execute();
             Document document = Jsoup.parse(response.body().string());
 
             Elements table = document.getElementsByClass("c");
@@ -67,7 +77,12 @@ class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
         return entries;
     }
 
-    private Entry getEntryObject(Elements childrenOfTr) {
+    /**
+     * Create and return an Entry POJO from a table row in the libgen resulting table.
+     * @param childrenOfTr the children of the row in the table
+     * @return an Entry object with the data from the data in the given row.
+     */
+    public static Entry getEntryObject(Elements childrenOfTr) {
         Entry entry = new Entry();
 
         Element id = childrenOfTr.get(0);
@@ -116,5 +131,12 @@ class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
             Toast.makeText(mainActivity.getApplicationContext(), "Finished downloading and parsing",
                     Toast.LENGTH_SHORT).show();
         }
+
+        Intent intent = new Intent(mainActivity, ResultsActivity.class);
+        Gson gson = new Gson();
+        String entriesJson = gson.toJson(entries, COLLECTION_ENTRY_TYPE);
+        intent.putExtra(ENTRIES_ID, entriesJson);
+
+        mainActivity.startActivity(intent);
     }
 }
