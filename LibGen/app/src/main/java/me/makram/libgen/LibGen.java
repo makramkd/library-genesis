@@ -1,14 +1,19 @@
 package me.makram.libgen;
 
 import android.app.Application;
+import android.content.Context;
 
+import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
+
+import java.io.File;
 
 /**
  * Created by admin on 9/7/15.
  */
 public class LibGen extends Application {
-    private final OkHttpClient client = new OkHttpClient();
+    private OkHttpClient client;
+    private Cache cache;
 
     /**
      * What page number we are on when querying genesis.
@@ -19,6 +24,15 @@ public class LibGen extends Application {
      * The user's search query.
      */
     private String query;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        cache = new Cache(getCacheDir(), 10 * 1024 * 1024);
+        client = new OkHttpClient();
+        client.setCache(cache);
+    }
 
     public OkHttpClient getClient() {
         return client;

@@ -29,6 +29,7 @@ import me.makram.libgen.data.Entry;
 class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
 
     public static final String ENTRIES_ID = "entries";
+    public static final String ACTIVITY_SOURCE_KEY = "activitySource";
 
     private MainActivity mainActivity;
 
@@ -140,6 +141,7 @@ class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
         Gson gson = new Gson();
         String entriesJson = gson.toJson(entries, COLLECTION_ENTRY_TYPE);
         intent.putExtra(ENTRIES_ID, entriesJson);
+        intent.putExtra(ACTIVITY_SOURCE_KEY, MainActivity.class.toString());
 
         mainActivity.startActivity(intent);
     }

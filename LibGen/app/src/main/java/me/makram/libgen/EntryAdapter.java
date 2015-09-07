@@ -91,4 +91,13 @@ public class EntryAdapter extends BaseAdapter {
     public void addEntries(Collection<Entry> entries) {
         data.addAll(entries);
     }
+
+    public Collection<Entry> getData() {
+        return data;
+    }
+
+    public void setData(List<Entry> entries) {
+        data = entries;
+        notifyDataSetChanged();
+    }
 }
