@@ -1,20 +1,14 @@
 package me.makram.libgen;
 
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
-
-import java.util.Collection;
-
-import me.makram.libgen.data.Entry;
 
 public class MainActivity extends AppCompatActivity {
 
