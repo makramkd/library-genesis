@@ -1,16 +1,41 @@
 package me.makram.libgen;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.google.gson.Gson;
+
+import java.util.Collection;
+
+import me.makram.libgen.data.Entry;
 
 public class ResultsActivity extends AppCompatActivity {
+
+    ListView resultsListView;
+    EntryAdapter entryAdapter;
+    EndlessScrollListener endlessScrollListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        String json = extras.getString(GetPageTask.ENTRIES_ID);
+        Gson gson = new Gson();
+        Collection<Entry> entries = gson.fromJson(json, GetPageTask.COLLECTION_ENTRY_TYPE);
+
+        entryAdapter = new EntryAdapter(this, R.layout.list_item, entries);
+        endlessScrollListener = new EndlessScrollListener(this, entryAdapter, 5);
+
+        resultsListView = (ListView) findViewById(R.id.resultsListView);
+        resultsListView.setAdapter(entryAdapter);
+        resultsListView.setOnScrollListener(endlessScrollListener);
     }
 
     @Override
