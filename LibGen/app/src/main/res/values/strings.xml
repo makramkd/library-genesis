@@ -3,8 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_results">ResultsActivity</string>
-    <string name="title_activity_details">DetailsActivity</string>
+    <string name="title_activity_results">Search Results</string>
+    <string name="title_activity_details">Entry Details</string>
 
     <string-array name="libgen_spinner_items">
         <item>LibGen (Sci-Tech)</item>
