@@ -1,57 +1,118 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingRight="7dp"
+    android:paddingLeft="7dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
 
     <TextView
-        android:textSize="32sp"
-        android:gravity="center"
-        android:text="@string/placeholder"
         android:id="@+id/entryTitleTextView"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp"
+        android:text="@string/placeholder"
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/entryImageView"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
     <TextView
-        android:textSize="18sp"
-        android:paddingTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:paddingBottom="4dp"
+        android:paddingTop="4dp"
         android:text="@string/authorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textSize="18sp" />
 
     <TextView
-        android:textSize="16sp"
         android:id="@+id/authorsTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
 
     <TextView
-        android:textSize="18sp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:text="@string/descriptionTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/extensionText"
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/descriptionTextView"
-        android:textSize="16sp"
+        android:id="@+id/extensionTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/entrySizeText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/sizeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/publisherText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/publisherTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/yearText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/yearTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/languageText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/languageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/downloadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:onClick="downloadButtonClicked"
-        android:text="@string/downloadButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="@string/downloadButtonText" />
 </LinearLayout>
+

@@ -78,7 +78,7 @@ public class GetEntryDetailsTask extends AsyncTask<Entry, Void, String> {
 
             // it's possible that one of them returns the image; all we really need is the
             // direct download link for now
-            link = MainActivity.BASE_DL_URL + links.first().attr(HREF);
+            link = links.first().attr(HREF);
 
         } catch (Exception e) {
             Log.v("GEDT", "Exception in doInBackground: " + e.getMessage());

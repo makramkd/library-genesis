@@ -9,6 +9,11 @@
     <string name="authorTextView">Author(s):</string>
     <string name="descriptionTextView">Description:</string>
     <string name="downloadButtonText">Download</string>
+    <string name="extensionText">Extension:</string>
+    <string name="entrySizeText">Size:</string>
+    <string name="publisherText">Publisher:</string>
+    <string name="yearText">Year:</string>
+    <string name="languageText">Language:</string>
 
     <string-array name="libgen_spinner_items">
         <item>LibGen (Sci-Tech)</item>

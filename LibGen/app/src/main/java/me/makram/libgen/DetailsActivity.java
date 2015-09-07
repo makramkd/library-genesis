@@ -31,7 +31,11 @@ public class DetailsActivity extends AppCompatActivity {
     private Button downloadButton;
     private TextView entryTitleTextView;
     private TextView authorTextView;
-    private TextView descriptionTextView;
+    private TextView extensionTextView;
+    private TextView sizeTextView;
+    private TextView publisherTextView;
+    private TextView yearTextView;
+    private TextView languageTextView;
 
     /**
      * Entry object that holds the details.
@@ -55,9 +59,13 @@ public class DetailsActivity extends AppCompatActivity {
         downloadButton = (Button) findViewById(R.id.downloadButton);
         entryTitleTextView = (TextView) findViewById(R.id.entryTitleTextView);
         authorTextView = (TextView) findViewById(R.id.authorsTextView);
-        descriptionTextView = (TextView) findViewById(R.id.descriptionTextView);
+        extensionTextView = (TextView) findViewById(R.id.extensionTextView);
+        sizeTextView = (TextView) findViewById(R.id.sizeTextView);
+        publisherTextView = (TextView) findViewById(R.id.publisherTextView);
+        yearTextView = (TextView) findViewById(R.id.yearTextView);
+        languageTextView = (TextView) findViewById(R.id.languageTextView);
 
-        downloadReceiver = new DownloadBroadcastReceiver();
+        downloadReceiver = new DownloadBroadcastReceiver(this);
 
         registerReceiver(downloadReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
@@ -75,6 +83,11 @@ public class DetailsActivity extends AppCompatActivity {
     public void fillInData() {
         entryTitleTextView.setText(entry.title);
         authorTextView.setText(entry.author);
+        extensionTextView.setText(entry.extension);
+        sizeTextView.setText(entry.size);
+        publisherTextView.setText(entry.publisher);
+        yearTextView.setText(entry.year);
+        languageTextView.setText(entry.language);
     }
 
     @Override
