@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     static final String SEARCH_URL =
             "http://gen.lib.rus.ec/search.php?&req=%s&phrase=1&view=simple&column=def&sort=title&sortmode=ASC&page=%d";
+    static final String BASE_URL =
+            "http://gen.lib.rus.ec/";
 
     public final OkHttpClient client = new OkHttpClient();
 
