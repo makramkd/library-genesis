@@ -1,6 +1,5 @@
 package me.makram.libgen;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -24,6 +23,6 @@ public class ListEntryClickedListener implements AdapterView.OnItemClickListener
         Entry entry = (Entry) entryAdapter.getItem(position);
 
         // async task that will load the page and create the intent
-
+        new GetEntryDetailsTask(resultsActivity).execute(entry);
     }
 }

@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
             "http://gen.lib.rus.ec/search.php?&req=%s&phrase=1&view=simple&column=def&sort=title&sortmode=ASC&page=%d";
     public static final String BASE_URL =
             "http://gen.lib.rus.ec/";
+    public static final String BASE_DL_URL =
+            "http://libgen.io/";
 
     EditText searchEdit;
     Spinner sourceSpinner;

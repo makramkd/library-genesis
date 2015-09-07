@@ -1,6 +1,7 @@
 package me.makram.libgen;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +19,7 @@ public class ResultsActivity extends AppCompatActivity {
     ListView resultsListView;
     EntryAdapter entryAdapter;
     EndlessScrollListener endlessScrollListener;
+    ListEntryClickedListener listEntryClickedListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +34,12 @@ public class ResultsActivity extends AppCompatActivity {
 
         entryAdapter = new EntryAdapter(this, R.layout.list_item, entries);
         endlessScrollListener = new EndlessScrollListener(this, entryAdapter, 5);
+        listEntryClickedListener = new ListEntryClickedListener(entryAdapter, this);
 
         resultsListView = (ListView) findViewById(R.id.resultsListView);
         resultsListView.setAdapter(entryAdapter);
         resultsListView.setOnScrollListener(endlessScrollListener);
+        resultsListView.setOnItemClickListener(listEntryClickedListener);
     }
 
     @Override
@@ -52,9 +56,13 @@ public class ResultsActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id)
+        {
+//            case android.R.id.home:
+//                NavUtils.navigateUpFromSameTask(this);
+//                return true;
+            case R.id.action_settings:
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

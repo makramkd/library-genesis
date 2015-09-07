@@ -30,7 +30,7 @@ public class Entry {
     /**
      * The year this entry was published. Could be -1 (i.e unknown)
      */
-    public int year;
+    public String year;
 
     /**
      * Number of pages in this entry. Could be -1 for unknown.

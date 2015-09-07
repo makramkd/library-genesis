@@ -56,6 +56,8 @@ class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
             Response response = client.newCall(params[0]).execute();
             Document document = Jsoup.parse(response.body().string());
 
+            response.body().close();
+
             Elements table = document.getElementsByClass("c");
             Element child = table.first();
             Elements children = child.children();
@@ -70,8 +72,10 @@ class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
             }
 
             succeeded = true;
+        } catch (NullPointerException e) {
+            Log.d("MA", "NullPointerException in AsyncTask#GetPage: " + e.getMessage());
         } catch (Exception e) {
-            Log.d("MA", "Exception in AsyncTask#GetPage: " + e.getMessage());
+            Log.d("MA", "Exception in GetPageTask: " + e.getMessage());
         }
 
         return entries;
@@ -112,7 +116,7 @@ class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
         entry.publisher = publisher.text();
 
         // could be empty as well
-        entry.year = Integer.valueOf(years.text());
+        entry.year = years.text();
         entry.pages = pageCount.text();
 
         entry.id = Integer.valueOf(id.text());
