@@ -5,6 +5,10 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_results">Search Results</string>
     <string name="title_activity_details">Entry Details</string>
+    <string name="placeholder">Placeholder</string>
+    <string name="authorTextView">Author(s):</string>
+    <string name="descriptionTextView">Description:</string>
+    <string name="downloadButtonText">Download</string>
 
     <string-array name="libgen_spinner_items">
         <item>LibGen (Sci-Tech)</item>
