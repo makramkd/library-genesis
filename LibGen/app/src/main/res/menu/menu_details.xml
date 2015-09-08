@@ -5,4 +5,9 @@
     <item android:id="@+id/openInBrowser"
         android:title="@string/openInBrowser"
         app:showAsAction="never" />
+
+    <item android:id="@+id/downloadAction"
+        android:title="@string/downloadButtonText"
+        android:icon="@android:drawable/stat_sys_download"
+        app:showAsAction="ifRoom"/>
 </menu>
