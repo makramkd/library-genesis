@@ -21,7 +21,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import me.makram.libgen.BuildConfig;
 import me.makram.libgen.LibGen;
+import me.makram.libgen.R;
 import me.makram.libgen.activities.MainActivity;
 import me.makram.libgen.activities.ResultsActivity;
 import me.makram.libgen.data.Entry;
@@ -48,7 +50,10 @@ public class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
     protected void onPreExecute() {
         super.onPreExecute();
 
-        Toast.makeText(mainActivity.getApplicationContext(), "Downloading page", Toast.LENGTH_SHORT).show();
+        if (BuildConfig.DEBUG) {
+            Toast.makeText(mainActivity.getApplicationContext(), "Downloading page",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -135,17 +140,22 @@ public class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
     protected void onPostExecute(Collection<Entry> entries) {
         super.onPostExecute(entries);
 
-        if (succeeded) {
+        if (succeeded && BuildConfig.DEBUG) {
             Toast.makeText(mainActivity.getApplicationContext(), "Finished downloading and parsing",
                     Toast.LENGTH_SHORT).show();
         }
 
-        Intent intent = new Intent(mainActivity, ResultsActivity.class);
-        Gson gson = new Gson();
-        String entriesJson = gson.toJson(entries, COLLECTION_ENTRY_TYPE);
-        intent.putExtra(ENTRIES_ID, entriesJson);
-        intent.putExtra(ACTIVITY_SOURCE_KEY, MainActivity.class.toString());
+        if (entries.size() > 0) {
+            Intent intent = new Intent(mainActivity, ResultsActivity.class);
+            Gson gson = new Gson();
+            String entriesJson = gson.toJson(entries, COLLECTION_ENTRY_TYPE);
+            intent.putExtra(ENTRIES_ID, entriesJson);
+            intent.putExtra(ACTIVITY_SOURCE_KEY, MainActivity.class.toString());
 
-        mainActivity.startActivity(intent);
+            mainActivity.startActivity(intent);
+        } else {
+            Toast.makeText(mainActivity, mainActivity.getResources().getString(R.string.noResults),
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }
