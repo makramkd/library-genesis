@@ -16,6 +16,9 @@ import java.util.Collection;
 import java.util.List;
 
 import me.makram.libgen.data.Entry;
+import me.makram.libgen.listeners.EndlessScrollListener;
+import me.makram.libgen.listeners.ListEntryClickedListener;
+import me.makram.libgen.tasks.GetPageTask;
 
 public class ResultsActivity extends AppCompatActivity {
 

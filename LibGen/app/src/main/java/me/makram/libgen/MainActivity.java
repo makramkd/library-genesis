@@ -10,6 +10,8 @@ import android.widget.Spinner;
 
 import com.squareup.okhttp.Request;
 
+import me.makram.libgen.tasks.GetPageTask;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String SEARCH_URL =

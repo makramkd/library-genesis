@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 
 import me.makram.libgen.data.Entry;
+import me.makram.libgen.tasks.GetEntryDetailsTask;
 
 public class DetailsActivity extends AppCompatActivity {
 
