@@ -1,5 +1,6 @@
 package me.makram.libgen.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -32,6 +33,7 @@ public class ResultsActivity extends AppCompatActivity {
     EntryAdapter entryAdapter;
     EndlessScrollListener endlessScrollListener;
     ListEntryClickedListener listEntryClickedListener;
+    ProgressDialog progressDialog;
 
     public static final Type LIST_ENTRY_TYPE =
             new TypeToken<List<Entry>>(){}.getType();
@@ -70,6 +72,11 @@ public class ResultsActivity extends AppCompatActivity {
         resultsListView.setAdapter(entryAdapter);
         resultsListView.setOnScrollListener(endlessScrollListener);
         resultsListView.setOnItemClickListener(listEntryClickedListener);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle(R.string.loadingMoreProgressDialog);
+        progressDialog.setMessage(getResources()
+                .getString(R.string.loadingMoreProgressDialogDescription));
     }
 
     @Override
@@ -115,5 +122,9 @@ public class ResultsActivity extends AppCompatActivity {
         editor.putString(ENTRY_LIST_KEY, (new Gson()).toJson(entryAdapter.getData(),
                 GetPageTask.COLLECTION_ENTRY_TYPE));
         editor.apply();
+    }
+
+    public ProgressDialog getProgressDialog() {
+        return progressDialog;
     }
 }

@@ -3,6 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Used statically: must translate -->
     <string name="title_activity_results">Search Results</string>
     <string name="title_activity_details">Entry Details</string>
     <string name="placeholder">Placeholder</string>
@@ -15,8 +17,18 @@
     <string name="yearText">Year:</string>
     <string name="languageText">Language:</string>
     <string name="openInBrowser">Open In Browser</string>
+    <string name="searchButtonText">Search</string>
 
+    <!-- Used dynamically in Java -->
     <string name="noResults">The search returned no results.</string>
+    <string name="unknownData">[Unknown]</string>
+    <string name="searchingProgressDialog">Searching…</string>
+    <string name="searchingProgressDialogDescription">Retrieving search results…</string>
+    <string name="loadingMoreProgressDialog">Loading…</string>
+    <string name="loadingMoreProgressDialogDescription">Retrieving more results…</string>
+    <string name="detailsProgressDialogDescription">Retrieving entry details…</string>
+    <string name="errorOpeningDetails">Error opening details</string>
+    <string name="networkNotAvailable">Network is not available: please connect before proceeding.</string>
     <string-array name="libgen_spinner_items">
         <item>LibGen (Sci-Tech)</item>
         <item>Standards</item>

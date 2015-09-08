@@ -54,6 +54,8 @@ public class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
             Toast.makeText(mainActivity.getApplicationContext(), "Downloading page",
                     Toast.LENGTH_SHORT).show();
         }
+
+        mainActivity.getProgressDialog().show();
     }
 
     @Override
@@ -152,8 +154,12 @@ public class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
             intent.putExtra(ENTRIES_ID, entriesJson);
             intent.putExtra(ACTIVITY_SOURCE_KEY, MainActivity.class.toString());
 
+            mainActivity.getProgressDialog().hide();
+
             mainActivity.startActivity(intent);
         } else {
+            mainActivity.getProgressDialog().hide();
+
             Toast.makeText(mainActivity, mainActivity.getResources().getString(R.string.noResults),
                     Toast.LENGTH_SHORT).show();
         }

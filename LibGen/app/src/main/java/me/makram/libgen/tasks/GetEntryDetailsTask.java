@@ -13,6 +13,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import me.makram.libgen.BuildConfig;
+import me.makram.libgen.R;
 import me.makram.libgen.activities.DetailsActivity;
 import me.makram.libgen.LibGen;
 import me.makram.libgen.activities.ResultsActivity;
@@ -40,25 +42,35 @@ public class GetEntryDetailsTask extends AsyncTask<Entry, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
 
-        Toast.makeText(resultsActivity, "Getting book details...", Toast.LENGTH_SHORT).show();
+        if (BuildConfig.DEBUG) {
+            Toast.makeText(resultsActivity, "Getting book details...", Toast.LENGTH_SHORT).show();
+        }
+
+        resultsActivity.getProgressDialog().show();
     }
 
     @Override
     protected void onPostExecute(String downloadLink) {
         super.onPostExecute(downloadLink);
 
+        resultsActivity.getProgressDialog().hide();
+
         if (downloadLink != null) {
             Toast.makeText(resultsActivity, "Finished getting book details!",
                     Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(resultsActivity, DetailsActivity.class);
+            Gson gson = new Gson();
+            String entryJson = gson.toJson(entry, Entry.class);
+            intent.putExtra(ENTRY_KEY, entryJson);
+            intent.putExtra(DOWNLOAD_LINK_KEY, downloadLink);
+
+            resultsActivity.startActivity(intent);
+        } else {
+            Toast.makeText(resultsActivity,
+                    resultsActivity.getResources().getString(R.string.errorOpeningDetails),
+                    Toast.LENGTH_SHORT).show();
         }
-
-        Intent intent = new Intent(resultsActivity, DetailsActivity.class);
-        Gson gson = new Gson();
-        String entryJson = gson.toJson(entry, Entry.class);
-        intent.putExtra(ENTRY_KEY, entryJson);
-        intent.putExtra(DOWNLOAD_LINK_KEY, downloadLink);
-
-        resultsActivity.startActivity(intent);
     }
 
     @Override
