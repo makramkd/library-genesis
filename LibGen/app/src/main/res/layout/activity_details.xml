@@ -135,7 +135,5 @@
                 android:text="@string/downloadButtonText" />
         </LinearLayout>
     </ScrollView>
-
-
 </LinearLayout>
 

@@ -41,4 +41,5 @@
 
     <!-- Ad testing -->
     <string name="test_banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id">ca-app-pub-6178334637012670/5225158141</string>
 </resources>
