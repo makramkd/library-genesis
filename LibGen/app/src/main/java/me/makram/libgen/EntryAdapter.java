@@ -76,12 +76,16 @@ public class EntryAdapter extends BaseAdapter {
 
         Entry entry = data.get(position);
         String title = entry.title, author = entry.author;
-        if (entry.title.length() >= 40) {
-            title = entry.title.substring(0, 40);
-        }
-        if (entry.author.length() >= 50) {
-            author = entry.author.substring(0, 50);
-        }
+
+        // i think this is unnecessary: just show the whole thing, it's
+        // not a big deal.
+//        if (entry.title.length() >= 60) {
+//            title = entry.title.substring(0, 60);
+//        }
+//        if (entry.author.length() >= 70) {
+//            author = entry.author.substring(0, 70);
+//        }
+        
         holder.titleTextView.setText(title);
         holder.authorTextView.setText(author);
 
