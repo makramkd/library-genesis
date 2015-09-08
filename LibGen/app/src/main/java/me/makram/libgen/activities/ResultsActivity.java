@@ -2,6 +2,7 @@ package me.makram.libgen.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -17,6 +18,7 @@ import java.util.List;
 
 import me.makram.libgen.BuildConfig;
 import me.makram.libgen.EntryAdapter;
+import me.makram.libgen.LibGen;
 import me.makram.libgen.R;
 import me.makram.libgen.data.Entry;
 import me.makram.libgen.listeners.EndlessScrollListener;
@@ -86,14 +88,22 @@ public class ResultsActivity extends AppCompatActivity {
 
         switch (id)
         {
-//            case android.R.id.home:
-//                NavUtils.navigateUpFromSameTask(this);
-//                return true;
-            case R.id.action_settings:
+            case R.id.viewResultsInBrowser:
+                openResultsInBrowser();
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openResultsInBrowser() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        final LibGen application = (LibGen) getApplication();
+        String url = String.format(MainActivity.SEARCH_URL,
+                application.getQuery(), application.getPageNumber()
+        );
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
     }
 
     @Override

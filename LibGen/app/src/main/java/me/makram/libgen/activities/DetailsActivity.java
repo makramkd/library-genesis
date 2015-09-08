@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 
 import me.makram.libgen.DownloadBroadcastReceiver;
+import me.makram.libgen.LibGen;
 import me.makram.libgen.R;
 import me.makram.libgen.data.Entry;
 import me.makram.libgen.tasks.GetEntryDetailsTask;
@@ -101,14 +102,31 @@ public class DetailsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id)
+        {
+            case R.id.openInBrowser:
+                openEntryDetailInBrowser();
+                return true;
+            case R.id.downloadAction:
+                performEntryDownload();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    private void openEntryDetailInBrowser() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        final LibGen application = (LibGen) getApplication();
+        intent.setData(Uri.parse(entry.linkToPage));
+        startActivity(intent);
+    }
+
     public void downloadButtonClicked(View view) {
+        performEntryDownload();
+    }
+
+    private void performEntryDownload() {
         DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(downloadLink));
         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI |
