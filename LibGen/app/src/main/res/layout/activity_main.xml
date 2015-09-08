@@ -1,37 +1,54 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
-        style="@style/LibGen.TitleTextStyle"
-        android:gravity="center"
-        android:text="@string/app_name" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
 
-    <EditText
-        android:paddingBottom="12dp"
-        android:id="@+id/searchEdit"
-        android:hint="Search..."
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            style="@style/LibGen.TitleTextStyle"
+            android:gravity="center"
+            android:text="@string/short_app_name" />
 
-    <!--<Spinner-->
+        <EditText
+            android:paddingBottom="12dp"
+            android:id="@+id/searchEdit"
+            android:hint="Search..."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--<Spinner-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:id="@+id/searchSourceSpinner"-->
         <!--android:entries="@array/libgen_spinner_items"/>-->
 
-    <Button
-        android:id="@+id/searchButton"
-        android:onClick="searchButtonClicked"
-        android:minWidth="120dp"
-        android:minHeight="55dp"
-        android:textSize="18sp"
-        android:layout_marginRight="4dip"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="right"
-        android:text="@string/searchButtonText"
+        <Button
+            android:id="@+id/searchButton"
+            android:onClick="searchButtonClicked"
+            android:minWidth="120dp"
+            android:minHeight="55dp"
+            android:textSize="18sp"
+            android:layout_marginRight="4dip"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="right"
+            android:text="@string/searchButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/test_banner_ad_unit_id"/>
+
+</RelativeLayout>

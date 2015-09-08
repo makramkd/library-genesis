@@ -30,6 +30,7 @@
     <string name="detailsProgressDialogDescription">Retrieving entry details…</string>
     <string name="errorOpeningDetails">Error opening details</string>
     <string name="networkNotAvailable">Network is not available: please connect before proceeding.</string>
+
     <string-array name="libgen_spinner_items">
         <item>LibGen (Sci-Tech)</item>
         <item>Standards</item>
@@ -37,4 +38,7 @@
         <item>Comics</item>
         <item>Magazines</item>
     </string-array>
+
+    <!-- Ad testing -->
+    <string name="test_banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 </resources>
