@@ -85,7 +85,7 @@ public class EntryAdapter extends BaseAdapter {
 //        if (entry.author.length() >= 70) {
 //            author = entry.author.substring(0, 70);
 //        }
-        
+
         holder.titleTextView.setText(title);
         holder.authorTextView.setText(author);
 

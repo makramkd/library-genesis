@@ -87,11 +87,11 @@ public class DetailsActivity extends AppCompatActivity {
     public void fillInData() {
         entryTitleTextView.setText(entry.title);
         authorTextView.setText(entry.author);
-        extensionTextView.setText(entry.extension);
-        sizeTextView.setText(entry.size);
-        publisherTextView.setText(entry.publisher);
-        yearTextView.setText(entry.year);
-        languageTextView.setText(entry.language);
+        extensionTextView.setText(entry.extension.isEmpty() ? "(Unknown)" : entry.extension);
+        sizeTextView.setText(entry.size.isEmpty() ? "(Unknown)" : entry.size);
+        publisherTextView.setText(entry.publisher.isEmpty() ? "(Unknown)" : entry.publisher);
+        yearTextView.setText(entry.year.isEmpty() ? "(Unknown)" : entry.year);
+        languageTextView.setText(entry.language.isEmpty() ? "(Unknown)" : entry.language);
     }
 
     @Override
