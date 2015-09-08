@@ -1,4 +1,4 @@
-package me.makram.libgen;
+package me.spectrallabs.libgen;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import me.makram.libgen.data.Entry;
+import me.spectrallabs.libgen.data.Entry;
 
 /**
  * Created by admin on 9/7/15.

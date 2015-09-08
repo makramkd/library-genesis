@@ -1,4 +1,4 @@
-package me.makram.libgen.tasks;
+package me.spectrallabs.libgen.tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -18,11 +18,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import me.makram.libgen.BuildConfig;
-import me.makram.libgen.EntryAdapter;
-import me.makram.libgen.LibGen;
-import me.makram.libgen.activities.MainActivity;
-import me.makram.libgen.data.Entry;
+import me.spectrallabs.libgen.BuildConfig;
+import me.spectrallabs.libgen.EntryAdapter;
+import me.spectrallabs.libgen.LibGen;
+import me.spectrallabs.libgen.activities.MainActivity;
+import me.spectrallabs.libgen.data.Entry;
 
 /**
  * Created by admin on 9/7/15.

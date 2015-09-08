@@ -1,4 +1,4 @@
-package me.makram.libgen.activities;
+package me.spectrallabs.libgen.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,14 +17,14 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 
-import me.makram.libgen.BuildConfig;
-import me.makram.libgen.EntryAdapter;
-import me.makram.libgen.LibGen;
-import me.makram.libgen.R;
-import me.makram.libgen.data.Entry;
-import me.makram.libgen.listeners.EndlessScrollListener;
-import me.makram.libgen.listeners.ListEntryClickedListener;
-import me.makram.libgen.tasks.GetPageTask;
+import me.spectrallabs.libgen.BuildConfig;
+import me.spectrallabs.libgen.EntryAdapter;
+import me.spectrallabs.libgen.LibGen;
+import me.spectrallabs.libgen.R;
+import me.spectrallabs.libgen.data.Entry;
+import me.spectrallabs.libgen.listeners.EndlessScrollListener;
+import me.spectrallabs.libgen.listeners.ListEntryClickedListener;
+import me.spectrallabs.libgen.tasks.GetPageTask;
 
 public class ResultsActivity extends AppCompatActivity {
 

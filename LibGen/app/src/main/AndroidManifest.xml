@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.makram.libgen" >
+    package="me.spectrallabs.libgen" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".LibGen"
+        android:name="me.spectrallabs.libgen.LibGen"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_libgen"
         android:label="@string/app_name"
@@ -15,11 +15,11 @@
         <!--<meta-data android:name="com.google.android.gms.version"-->
             <!--android:value="@integer/google_play_services_version" />-->
 
-        <receiver android:name=".DownloadBroadcastReceiver"/>
+        <receiver android:name="me.spectrallabs.libgen.DownloadBroadcastReceiver"/>
 
         <activity
             android:icon="@mipmap/ic_launcher_libgen"
-            android:name=".activities.MainActivity"
+            android:name="me.spectrallabs.libgen.activities.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:label="@string/short_app_name" >
             <intent-filter>
@@ -29,21 +29,21 @@
         </activity>
         <activity
             android:icon="@mipmap/ic_launcher_libgen"
-            android:name=".activities.ResultsActivity"
+            android:name="me.spectrallabs.libgen.activities.ResultsActivity"
             android:label="@string/title_activity_results"
-            android:parentActivityName=".activities.MainActivity" >
+            android:parentActivityName="me.spectrallabs.libgen.activities.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MainActivity" />
+                android:value="me.spectrallabs.libgen.activities.MainActivity" />
         </activity>
         <activity
             android:icon="@mipmap/ic_launcher_libgen"
-            android:name=".activities.DetailsActivity"
+            android:name="me.spectrallabs.libgen.activities.DetailsActivity"
             android:label="@string/title_activity_details"
-            android:parentActivityName=".activities.ResultsActivity" >
+            android:parentActivityName="me.spectrallabs.libgen.activities.ResultsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.ResultsActivity" />
+                android:value="me.spectrallabs.libgen.activities.ResultsActivity" />
         </activity>
         <!-- The ads activity -->
         <!--<activity android:name="com.google.android.gms.ads.AdActivity"-->

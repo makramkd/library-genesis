@@ -1,10 +1,10 @@
-package me.makram.libgen.listeners;
+package me.spectrallabs.libgen.listeners;
 
 import android.content.Context;
 import android.widget.AbsListView;
 
-import me.makram.libgen.EntryAdapter;
-import me.makram.libgen.tasks.LoadMoreEntriesTask;
+import me.spectrallabs.libgen.EntryAdapter;
+import me.spectrallabs.libgen.tasks.LoadMoreEntriesTask;
 
 /**
  * Created by admin on 9/7/15.

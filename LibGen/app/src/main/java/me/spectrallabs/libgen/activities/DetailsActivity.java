@@ -1,4 +1,4 @@
-package me.makram.libgen.activities;
+package me.spectrallabs.libgen.activities;
 
 import android.app.DownloadManager;
 import android.content.Intent;
@@ -15,11 +15,11 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
-import me.makram.libgen.DownloadBroadcastReceiver;
-import me.makram.libgen.LibGen;
-import me.makram.libgen.R;
-import me.makram.libgen.data.Entry;
-import me.makram.libgen.tasks.GetEntryDetailsTask;
+import me.spectrallabs.libgen.DownloadBroadcastReceiver;
+import me.spectrallabs.libgen.LibGen;
+import me.spectrallabs.libgen.R;
+import me.spectrallabs.libgen.data.Entry;
+import me.spectrallabs.libgen.tasks.GetEntryDetailsTask;
 
 public class DetailsActivity extends AppCompatActivity {
 

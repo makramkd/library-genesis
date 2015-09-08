@@ -1,12 +1,12 @@
-package me.makram.libgen.listeners;
+package me.spectrallabs.libgen.listeners;
 
 import android.view.View;
 import android.widget.AdapterView;
 
-import me.makram.libgen.EntryAdapter;
-import me.makram.libgen.activities.ResultsActivity;
-import me.makram.libgen.data.Entry;
-import me.makram.libgen.tasks.GetEntryDetailsTask;
+import me.spectrallabs.libgen.EntryAdapter;
+import me.spectrallabs.libgen.activities.ResultsActivity;
+import me.spectrallabs.libgen.data.Entry;
+import me.spectrallabs.libgen.tasks.GetEntryDetailsTask;
 
 /**
  * Created by admin on 9/7/15.

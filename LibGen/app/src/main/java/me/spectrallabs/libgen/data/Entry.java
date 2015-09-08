@@ -1,4 +1,4 @@
-package me.makram.libgen.data;
+package me.spectrallabs.libgen.data;
 
 /**
  * A class that represents an entry on Library Genesis.

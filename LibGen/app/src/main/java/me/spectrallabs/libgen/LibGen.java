@@ -1,12 +1,9 @@
-package me.makram.libgen;
+package me.spectrallabs.libgen;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
-
-import java.io.File;
 
 /**
  * Created by admin on 9/7/15.

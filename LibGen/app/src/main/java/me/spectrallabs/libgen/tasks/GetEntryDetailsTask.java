@@ -1,4 +1,4 @@
-package me.makram.libgen.tasks;
+package me.spectrallabs.libgen.tasks;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,12 +13,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import me.makram.libgen.BuildConfig;
-import me.makram.libgen.R;
-import me.makram.libgen.activities.DetailsActivity;
-import me.makram.libgen.LibGen;
-import me.makram.libgen.activities.ResultsActivity;
-import me.makram.libgen.data.Entry;
+import me.spectrallabs.libgen.BuildConfig;
+import me.spectrallabs.libgen.R;
+import me.spectrallabs.libgen.activities.DetailsActivity;
+import me.spectrallabs.libgen.LibGen;
+import me.spectrallabs.libgen.activities.ResultsActivity;
+import me.spectrallabs.libgen.data.Entry;
 
 /**
  * The task that is used in order to get the details of the entry.

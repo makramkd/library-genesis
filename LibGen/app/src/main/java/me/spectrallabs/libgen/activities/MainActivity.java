@@ -1,4 +1,4 @@
-package me.makram.libgen.activities;
+package me.spectrallabs.libgen.activities;
 
 import android.app.ProgressDialog;
 import android.net.ConnectivityManager;
@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import com.squareup.okhttp.Request;
 
-import me.makram.libgen.LibGen;
-import me.makram.libgen.R;
-import me.makram.libgen.tasks.GetPageTask;
+import me.spectrallabs.libgen.LibGen;
+import me.spectrallabs.libgen.R;
+import me.spectrallabs.libgen.tasks.GetPageTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,9 +76,16 @@ public class MainActivity extends AppCompatActivity {
         if (!networkIsAvailable()) {
             Toast.makeText(this, getResources().getString(R.string.networkNotAvailable),
                     Toast.LENGTH_SHORT).show();
+            return;
         }
 
         String query = searchEdit.getText().toString();
+
+        if (query.isEmpty()) {
+            Toast.makeText(this, getResources().getString(R.string.noResults),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         LibGen application = (LibGen) getApplication();
         application.setPageNumber(1);

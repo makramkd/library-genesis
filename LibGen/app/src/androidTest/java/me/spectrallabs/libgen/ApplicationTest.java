@@ -1,4 +1,4 @@
-package me.makram.libgen;
+package me.spectrallabs.libgen;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
