@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import me.makram.libgen.BuildConfig;
 import me.makram.libgen.EntryAdapter;
 import me.makram.libgen.LibGen;
 import me.makram.libgen.activities.MainActivity;
@@ -40,7 +41,9 @@ public class LoadMoreEntriesTask extends AsyncTask<Void, Void, Collection<Entry>
     protected void onPreExecute() {
         super.onPreExecute();
 
-        Toast.makeText(context, "Loading more entries", Toast.LENGTH_SHORT).show();
+        if (BuildConfig.DEBUG) {
+            Toast.makeText(context, "Loading more entries", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -75,7 +78,10 @@ public class LoadMoreEntriesTask extends AsyncTask<Void, Void, Collection<Entry>
             Log.d("LMET", "Exception in LoadMoreEntriesTask: " + e.getMessage());
         }
 
-        entryAdapter.addEntries(entries);
+        // don't unnecessarily add entries
+        if (entries.size() > 0) {
+            entryAdapter.addEntries(entries);
+        }
 
         return entries;
     }
@@ -84,9 +90,10 @@ public class LoadMoreEntriesTask extends AsyncTask<Void, Void, Collection<Entry>
     protected void onPostExecute(Collection<Entry> entries) {
         super.onPostExecute(entries);
 
-        Toast.makeText(context, "Finished: loaded " + entries.size() + " entries."
-                , Toast.LENGTH_SHORT).show();
-
-        entryAdapter.notifyDataSetChanged();
+        if (entries.size() > 0) {
+            Toast.makeText(context, "Loaded " + entries.size() + " more entries."
+                    , Toast.LENGTH_SHORT).show();
+            entryAdapter.notifyDataSetChanged();
+        }
     }
 }
