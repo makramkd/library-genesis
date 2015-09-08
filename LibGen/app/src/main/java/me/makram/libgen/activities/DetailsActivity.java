@@ -78,6 +78,13 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+
+        unregisterReceiver(downloadReceiver);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_details, menu);
@@ -85,13 +92,14 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     public void fillInData() {
+        String unknownString = getResources().getString(R.string.unknownData);
         entryTitleTextView.setText(entry.title);
         authorTextView.setText(entry.author);
-        extensionTextView.setText(entry.extension.isEmpty() ? "(Unknown)" : entry.extension);
-        sizeTextView.setText(entry.size.isEmpty() ? "(Unknown)" : entry.size);
-        publisherTextView.setText(entry.publisher.isEmpty() ? "(Unknown)" : entry.publisher);
-        yearTextView.setText(entry.year.isEmpty() ? "(Unknown)" : entry.year);
-        languageTextView.setText(entry.language.isEmpty() ? "(Unknown)" : entry.language);
+        extensionTextView.setText(entry.extension.isEmpty() ? unknownString : entry.extension);
+        sizeTextView.setText(entry.size.isEmpty() ? unknownString : entry.size);
+        publisherTextView.setText(entry.publisher.isEmpty() ? unknownString : entry.publisher);
+        yearTextView.setText(entry.year.isEmpty() ? unknownString : entry.year);
+        languageTextView.setText(entry.language.isEmpty() ? unknownString : entry.language);
     }
 
     @Override
