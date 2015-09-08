@@ -81,7 +81,12 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        unregisterReceiver(downloadReceiver);
+        try {
+            unregisterReceiver(downloadReceiver);
+        } catch (Exception e) {
+            // swallow it: illegal argument exception because we already unregistered
+            // the receiver
+        }
     }
 
     @Override
