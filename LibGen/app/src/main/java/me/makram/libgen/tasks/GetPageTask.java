@@ -1,4 +1,4 @@
-package me.makram.libgen;
+package me.makram.libgen.tasks;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -21,12 +21,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import me.makram.libgen.LibGen;
+import me.makram.libgen.MainActivity;
+import me.makram.libgen.ResultsActivity;
 import me.makram.libgen.data.Entry;
 
 /**
  * Created by admin on 9/6/15.
  */
-class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
+public class GetPageTask extends AsyncTask<Request, Void, Collection<Entry>> {
 
     public static final String ENTRIES_ID = "entries";
     public static final String ACTIVITY_SOURCE_KEY = "activitySource";

@@ -1,7 +1,10 @@
-package me.makram.libgen;
+package me.makram.libgen.listeners;
 
 import android.content.Context;
 import android.widget.AbsListView;
+
+import me.makram.libgen.EntryAdapter;
+import me.makram.libgen.tasks.LoadMoreEntriesTask;
 
 /**
  * Created by admin on 9/7/15.

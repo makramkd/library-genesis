@@ -1,4 +1,4 @@
-package me.makram.libgen;
+package me.makram.libgen.tasks;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,6 +13,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import me.makram.libgen.DetailsActivity;
+import me.makram.libgen.LibGen;
+import me.makram.libgen.ResultsActivity;
 import me.makram.libgen.data.Entry;
 
 /**

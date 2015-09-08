@@ -1,4 +1,4 @@
-package me.makram.libgen;
+package me.makram.libgen.tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import me.makram.libgen.EntryAdapter;
+import me.makram.libgen.LibGen;
+import me.makram.libgen.MainActivity;
 import me.makram.libgen.data.Entry;
 
 /**

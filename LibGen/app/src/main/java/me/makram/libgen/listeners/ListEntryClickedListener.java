@@ -1,9 +1,12 @@
-package me.makram.libgen;
+package me.makram.libgen.listeners;
 
 import android.view.View;
 import android.widget.AdapterView;
 
+import me.makram.libgen.EntryAdapter;
+import me.makram.libgen.ResultsActivity;
 import me.makram.libgen.data.Entry;
+import me.makram.libgen.tasks.GetEntryDetailsTask;
 
 /**
  * Created by admin on 9/7/15.
