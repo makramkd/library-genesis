@@ -14,6 +14,7 @@
     <string name="publisherText">Publisher:</string>
     <string name="yearText">Year:</string>
     <string name="languageText">Language:</string>
+    <string name="openInBrowser">Open In Browser</string>
 
     <string-array name="libgen_spinner_items">
         <item>LibGen (Sci-Tech)</item>
