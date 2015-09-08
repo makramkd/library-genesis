@@ -12,8 +12,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.squareup.okhttp.Request;
 
 import me.makram.libgen.LibGen;
@@ -45,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.setMessage(getResources()
                 .getString(R.string.searchingProgressDialogDescription));
 
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        AdView mAdView = (AdView) findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder()
+////                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+//                .build();
+//        mAdView.loadAd(adRequest);
     }
 
     @Override
