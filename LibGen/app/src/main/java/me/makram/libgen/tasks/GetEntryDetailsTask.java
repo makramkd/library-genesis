@@ -13,9 +13,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import me.makram.libgen.DetailsActivity;
+import me.makram.libgen.activities.DetailsActivity;
 import me.makram.libgen.LibGen;
-import me.makram.libgen.ResultsActivity;
+import me.makram.libgen.activities.ResultsActivity;
 import me.makram.libgen.data.Entry;
 
 /**

@@ -20,7 +20,7 @@ import java.util.List;
 
 import me.makram.libgen.EntryAdapter;
 import me.makram.libgen.LibGen;
-import me.makram.libgen.MainActivity;
+import me.makram.libgen.activities.MainActivity;
 import me.makram.libgen.data.Entry;
 
 /**

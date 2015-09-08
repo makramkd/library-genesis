@@ -1,4 +1,4 @@
-package me.makram.libgen;
+package me.makram.libgen.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +15,9 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 
+import me.makram.libgen.BuildConfig;
+import me.makram.libgen.EntryAdapter;
+import me.makram.libgen.R;
 import me.makram.libgen.data.Entry;
 import me.makram.libgen.listeners.EndlessScrollListener;
 import me.makram.libgen.listeners.ListEntryClickedListener;

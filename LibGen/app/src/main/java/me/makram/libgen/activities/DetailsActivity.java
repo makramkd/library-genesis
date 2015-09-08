@@ -1,4 +1,4 @@
-package me.makram.libgen;
+package me.makram.libgen.activities;
 
 import android.app.DownloadManager;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import me.makram.libgen.DownloadBroadcastReceiver;
+import me.makram.libgen.R;
 import me.makram.libgen.data.Entry;
 import me.makram.libgen.tasks.GetEntryDetailsTask;
 

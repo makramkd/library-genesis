@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import me.makram.libgen.EntryAdapter;
-import me.makram.libgen.ResultsActivity;
+import me.makram.libgen.activities.ResultsActivity;
 import me.makram.libgen.data.Entry;
 import me.makram.libgen.tasks.GetEntryDetailsTask;
 
@@ -16,7 +16,7 @@ public class ListEntryClickedListener implements AdapterView.OnItemClickListener
     private EntryAdapter entryAdapter;
     private ResultsActivity resultsActivity;
 
-    ListEntryClickedListener(EntryAdapter adapter, ResultsActivity activity) {
+    public ListEntryClickedListener(EntryAdapter adapter, ResultsActivity activity) {
         entryAdapter = adapter;
         resultsActivity = activity;
     }

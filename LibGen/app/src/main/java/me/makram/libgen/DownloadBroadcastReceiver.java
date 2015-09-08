@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.util.Log;
 
+import me.makram.libgen.activities.DetailsActivity;
+
 /**
  * Created by admin on 9/7/15.
  */

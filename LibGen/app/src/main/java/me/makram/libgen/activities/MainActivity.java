@@ -1,4 +1,4 @@
-package me.makram.libgen;
+package me.makram.libgen.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.widget.Spinner;
 
 import com.squareup.okhttp.Request;
 
+import me.makram.libgen.LibGen;
+import me.makram.libgen.R;
 import me.makram.libgen.tasks.GetPageTask;
 
 public class MainActivity extends AppCompatActivity {
