@@ -34,12 +34,12 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
         if (cursor.moveToFirst()) {
             int columnIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
             if (DownloadManager.STATUS_SUCCESSFUL == cursor.getInt(columnIndex)) {
-
                 String uriString = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
                 Log.i(TAG, "downloaded file " + uriString);
             } else {
                 Log.i(TAG, "download failed " + cursor.getInt(columnIndex));
             }
         }
+        cursor.close();
     }
 }
