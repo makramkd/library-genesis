@@ -65,7 +65,7 @@ public class DetailsActivity extends AppCompatActivity {
         yearTextView = (TextView) findViewById(R.id.yearTextView);
         languageTextView = (TextView) findViewById(R.id.languageTextView);
 
-        downloadReceiver = new DownloadBroadcastReceiver(this);
+        downloadReceiver = new DownloadBroadcastReceiver();
 
         registerReceiver(downloadReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));

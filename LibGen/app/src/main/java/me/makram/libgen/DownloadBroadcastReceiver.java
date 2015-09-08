@@ -15,14 +15,14 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
 
     public static final String TAG = "DBR";
 
-    DownloadManager downloadManager;
+    public DownloadBroadcastReceiver() {
 
-    public DownloadBroadcastReceiver(Context context) {
-        downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        DownloadManager downloadManager = (DownloadManager)
+                context.getSystemService(Context.DOWNLOAD_SERVICE);
         SharedPreferences preferences = context.getSharedPreferences(DetailsActivity.class.getName(),
                 Context.MODE_PRIVATE);
         long downloadId = preferences.getLong(DetailsActivity.ENTRY_DOWNLOADID_KEY, -1);
