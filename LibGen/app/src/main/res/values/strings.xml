@@ -16,6 +16,7 @@
     <string name="languageText">Language:</string>
     <string name="openInBrowser">Open In Browser</string>
 
+    <string name="noResults">The search returned no results.</string>
     <string-array name="libgen_spinner_items">
         <item>LibGen (Sci-Tech)</item>
         <item>Standards</item>
